@@ -1,0 +1,232 @@
+/* GMAIL BLOCK */
+
+.gmail_block {
+    background: black;
+    padding: 80px 0; /* Немного уменьшил отступ */
+}
+
+.inner_gmail_block {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center; /* Выровнял по центру, т.к. форма одна */
+    align-items: center;
+    border: 1px solid var(--orange);
+    border-radius: 20px;
+    padding: 40px 30px; /* Убрал fixed height, заменил на padding */
+    background: #1a1a1a; /* Добавил фон для "карточки" */
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1); /* Мягкая тень в цвет акцента */
+}
+
+.form_gmail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Ограничил ширину формы */
+}
+
+.form_gmail label {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 8px;
+    align-self: flex-start; /* Лейбл слева */
+}
+
+.form_gmail input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #eee;
+    font-size: 16px;
+    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+}
+
+.form_gmail button {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.checker {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #aaa; /* JS будет менять этот цвет на зеленый/красный */
+    min-height: 20px; /* Зарезервировал место, чтобы блок не "прыгал" */
+}
+
+/* MOVE BLOCK */
+
+.move_block {
+    background: black;
+    padding: 80px 0;
+}
+
+.parent_block {
+    height: 500px;
+    width: 500px;
+    border: 1px solid var(--orange);
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px; /* Скруглил углы */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2); /* Добавил "свечение" */
+}
+
+.inner_parent_block {
+    height: 400px;
+    width: 400px;
+    border: 1px solid var(--orange);
+    border-radius: 18px;
+}
+
+.child_block {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 4px; /* Немного скруглил кубик */
+}
+
+.inner_move_block {
+    margin-top: 40px;
+}
+
+/*----ANALOG CLOCK-----*/
+/* (Стили аналоговых часов оставлены без изменений, т.к. они сложные и, вероятно, работают) */
+.clock {
+    --clock-size: 360px;
+    width: var(--clock-size);
+    height: var(--clock-size);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    color: white;
+}
+/* ... (остальные стили .spike, .seconds, .minutes и т.д.) ... */
+.spike {
+    position: absolute;
+    width: 8px;
+    height: 1px;
+    background: #fff9;
+    line-height: 20px;
+    transform-origin: 50%;
+    z-index: 5;
+    inset: 0;
+    margin: auto;
+    font-style: normal;
+    transform: rotate(var(--rotate)) translateX(var(--dail-size));
+}
+.spike:nth-child(5n+1) {
+    box-shadow: -7px 0 #fff9;
+}
+.spike:nth-child(5n+1):after {
+    content: attr(data-i);
+    position: absolute;
+    right: 22px;
+    top: -10px;
+    transition: 1s linear;
+    transform: rotate(calc( var(--dRotate) - var(--rotate)));
+}
+.seconds {
+    --dRotate: 0deg;
+    --dail-size: calc((var(--clock-size)/ 2) - 8px);
+    font-weight: 800;
+    font-size: 18px;
+    transform: rotate(calc( -1 * var(--dRotate)));
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transition: 1s linear;
+}
+.minutes {
+    --dail-size: calc((var(--clock-size)/ 2) - 65px);
+    font-size: 16px;
+    transform: rotate(calc( -1 * var(--dRotate)));
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transition: 1s linear;
+}
+.stop-anim {
+    transition: 0s linear;
+}
+.stop-anim .spike:after {
+    transition: 0s linear !important;
+}
+.hour {
+    font-size: 70px;
+    font-weight: 900;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.minute {
+    font-size: 36px;
+    font-weight: 900;
+    position: absolute;
+    background: #000;
+    z-index: 10;
+    right: calc(var(--clock-size)/ 4.5);
+    top: 50%;
+    transform: translateY(-50%);
+}
+.minute:after {
+    content: "";
+    position: absolute;
+    border: 2px solid #fff;
+    border-right: none;
+    height: 50px;
+    left: -10px;
+    top: 50%;
+    border-radius: 40px 0 0 40px;
+    width: calc(var(--clock-size)/ 2.75);
+    transform: translatey(-50%);
+}
+
+
+/*-------STOP WATCH------ */
+
+.stopwatch {
+    padding: 80px 0;
+    background: black;
+}
+
+.inner_stopwatch_block {
+    margin-top: 40px;
+    border: 1px solid var(--orange);
+    border-radius: 20px;
+    padding: 30px;
+    background: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1);
+}
+
+.time {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid var(--orange);
+    margin-top: 0; /* Убрал margin, т.к. есть padding у родителя */
+    padding-bottom: 20px; /* Добавил отступ снизу */
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Эффект свечения */
+}
+
+.time_block {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.time_buttons {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Кнопки по центру */
+    gap: 20px; /* Отступ между кнопками */
+}
