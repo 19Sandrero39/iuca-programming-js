@@ -2,19 +2,19 @@
 
 .gmail_block {
     background: black;
-    padding: 80px 0; /* Немного уменьшил отступ */
+    padding: 80px 0; 
 }
 
 .inner_gmail_block {
     margin-top: 40px;
     display: flex;
-    justify-content: center; /* Выровнял по центру, т.к. форма одна */
+    justify-content: center; 
     align-items: center;
     border: 1px solid var(--orange);
     border-radius: 20px;
-    padding: 40px 30px; /* Убрал fixed height, заменил на padding */
-    background: #1a1a1a; /* Добавил фон для "карточки" */
-    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1); /* Мягкая тень в цвет акцента */
+    padding: 40px 30px; 
+    background: #1a1a1a; 
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1); 
 }
 
 .form_gmail {
@@ -22,14 +22,14 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px; /* Ограничил ширину формы */
+    max-width: 400px; 
 }
 
 .form_gmail label {
     font-size: 14px;
     color: #aaa;
     margin-bottom: 8px;
-    align-self: flex-start; /* Лейбл слева */
+    align-self: flex-start; 
 }
 
 .form_gmail input[type="text"] {
@@ -40,7 +40,7 @@
     border-radius: 8px;
     color: #eee;
     font-size: 16px;
-    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+    box-sizing: border-box; 
 }
 
 .form_gmail button {
@@ -52,8 +52,8 @@
     margin-top: 15px;
     font-weight: bold;
     font-size: 14px;
-    color: #aaa; /* JS будет менять этот цвет на зеленый/красный */
-    min-height: 20px; /* Зарезервировал место, чтобы блок не "прыгал" */
+    color: #aaa; 
+    min-height: 20px; 
 }
 
 /* MOVE BLOCK */
@@ -69,8 +69,8 @@
     border: 1px solid var(--orange);
     position: relative;
     margin: 0 auto;
-    border-radius: 10px; /* Скруглил углы */
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2); /* Добавил "свечение" */
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2); 
 }
 
 .inner_parent_block {
@@ -86,15 +86,13 @@
     width: 50px;
     height: 50px;
     background-color: red;
-    border-radius: 4px; /* Немного скруглил кубик */
+    border-radius: 4px; 
 }
 
 .inner_move_block {
     margin-top: 40px;
 }
 
-/*----ANALOG CLOCK-----*/
-/* (Стили аналоговых часов оставлены без изменений, т.к. они сложные и, вероятно, работают) */
 .clock {
     --clock-size: 360px;
     width: var(--clock-size);
@@ -105,7 +103,7 @@
     border-radius: 50%;
     color: white;
 }
-/* ... (остальные стили .spike, .seconds, .minutes и т.д.) ... */
+
 .spike {
     position: absolute;
     width: 8px;
@@ -212,9 +210,9 @@
     height: 100px;
     width: 100%;
     border-bottom: 1px solid var(--orange);
-    margin-top: 0; /* Убрал margin, т.к. есть padding у родителя */
-    padding-bottom: 20px; /* Добавил отступ снизу */
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Эффект свечения */
+    margin-top: 0; 
+    padding-bottom: 20px; 
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); 
 }
 
 .time_block {
@@ -227,6 +225,6 @@
     margin-top: 30px;
     width: 100%;
     display: flex;
-    justify-content: center; /* Кнопки по центру */
-    gap: 20px; /* Отступ между кнопками */
+    justify-content: center; 
+    gap: 20px; 
 }

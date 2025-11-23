@@ -1,8 +1,3 @@
-// home_works.js
-// Поддерживает:
-// - проверку gmail (регулярное выражение, регистронезависимо)
-// - проверку ИИН: сначала формат (\d{12}), затем контрольная сумма (алгоритм для КЗ ИИН)
-
 // Элементы Gmail
 const gmailInput = document.getElementById('gmail_input');
 const gmailButton = document.getElementById('gmail_button');
@@ -20,30 +15,21 @@ const gmailRegExp = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
 function checkGmail() {
     const value = (gmailInput.value || '').trim();
     if (!value) {
-        showMessage(gmailResult, 'Введите email', 'orange');
+        gmailResult.textContent = 'Введите email';
+        gmailResult.style.color = 'orange';
         return;
     }
 
     if (gmailRegExp.test(value)) {
-        showMessage(gmailResult, 'Почта верна', 'green');
+        gmailResult.textContent = 'Почта верна';
+        gmailResult.style.color = 'green';
     } else {
-        showMessage(gmailResult, 'Почта не верна (требуется @gmail.com)', 'red');
+        gmailResult.textContent = 'Почта не верна (требуется @gmail.com)';
+        gmailResult.style.color = 'red';
     }
 }
 
 /* ---------- IIN: формат + контрольная сумма ---------- */
-/*
-Алгоритм:
-1) Проверяем, что ИИН — 12 цифр (регулярка /^\d{12}$/).
-2) Вычисляем контрольную цифру:
-   - Сначала весовые множители 1..11: суммируем digits[i] * (i+1) для i=0..10.
-     r = sum % 11;
-     если r != 10, контроль = r.
-   - Если r == 10, повторяем с множителями 3..13: sum2 = sum(digits[i] * (i+3))
-     r2 = sum2 % 11;
-     если r2 != 10, контроль = r2, иначе контроль = 0.
-3) Сравниваем полученный контроль с 12-м символом (digits[11]).
-*/
 function isValidIIN(iin) {
     if (!/^\d{12}$/.test(iin)) return false;
 
@@ -75,20 +61,110 @@ function checkIIN() {
     const value = (iinInput.value || '').trim();
 
     if (!value) {
-        showMessage(iinResult, 'Введите ИИН', 'orange');
+        iinResult.textContent = 'Введите ИИН';
+        iinResult.style.color = 'orange';
         return;
     }
 
     // Сначала регулярка на формат
     if (!/^\d{12}$/.test(value)) {
-        showMessage(iinResult, 'ИИН должен содержать 12 цифр', 'red');
+        iinResult.textContent = 'ИИН должен содержать 12 цифр';
+        iinResult.style.color = 'red';
         return;
     }
 
     // Проверка контрольной суммы
     if (isValidIIN(value)) {
-        showMessage(iinResult, 'ИИН верный', 'green');
+        iinResult.textContent = 'ИИН верный';
+        iinResult.style.color = 'green';
     } else {
-        showMessage(iinResult, 'ИИН не верный (ошибка контрольной суммы)', 'red');
+        iinResult.textContent = 'ИИН не верный (ошибка контрольной суммы)';
+        iinResult.style.color = 'red';
     }
 }
+
+// Добавляем обработчики для кнопок
+gmailButton.addEventListener('click', checkGmail);
+iinButton.addEventListener('click', checkIIN);
+
+// Движение квадрата по квадрату
+const parentBlock = document.querySelector('.parent_block');
+const childBlock = document.querySelector('.child_block');
+
+let x = 0;
+let y = 0;
+let directionX = 1;
+let directionY = 0;
+const speed = 3;
+
+function move() {
+    const maxWidth = parentBlock.offsetWidth - childBlock.offsetWidth;
+    const maxHeight = parentBlock.offsetHeight - childBlock.offsetHeight;
+
+    x += directionX * speed;
+    y += directionY * speed;
+
+    childBlock.style.left = x + 'px';
+    childBlock.style.top = y + 'px';
+
+    if (x > maxWidth && directionX === 1) {
+        directionX = 0;
+        directionY = 1;
+    } else if (y >= maxHeight && directionY === 1) {
+        directionX = -1;
+        directionY = 0;
+    } else if (x <= 0 && directionX === -1) {
+        directionX = 0;
+        directionY = -1;
+    } else if (y <= 0 && directionY === -1) {
+        directionX = 1;
+        directionY = 0;
+    }
+    setTimeout(move, 10);
+}
+move();
+
+// Секундомер
+let milliseconds = 0;
+let intervalId;
+let running = false;
+
+function updateTimer() {
+    milliseconds++;
+
+    const minutes = Math.floor(milliseconds / 6000);
+    const seconds = Math.floor((milliseconds % 6000) / 100);
+    const tenths = milliseconds % 100;
+
+    document.getElementById('minutesS').innerText = minutes.toString().padStart(2, '0');
+    document.getElementById('secondsS').innerText = seconds.toString().padStart(2, '0');
+    document.getElementById('ml-secondsS').innerText = tenths.toString().padStart(2, '0');
+}
+
+function resetTimer() {
+    milliseconds = 0;
+    document.getElementById('minutesS').innerText = '00';
+    document.getElementById('secondsS').innerText = '00';
+    document.getElementById('ml-secondsS').innerText = '00';
+
+    if (running) {
+        clearInterval(intervalId);
+        running = false;
+    }
+}
+
+document.getElementById('start').addEventListener('click', function () {
+    if (!running) {
+        intervalId = setInterval(updateTimer, 10);
+        running = true;
+    }
+});
+
+document.getElementById('stop').addEventListener('click', function () {
+    if (running) {
+        clearInterval(intervalId);
+        running = false;
+    }
+});
+
+document.getElementById('reset').addEventListener('click', resetTimer);
