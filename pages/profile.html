@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио Александра</title>
+    <link rel="stylesheet" href="../css/profile.css" />
+  </head>
+  <body>
+    <!-- ---------------------- ДОБАВЛЕННЫЙ HEADER ---------------------- -->
+    <div class="header">
+      <div class="container">
+        <div class="inner_header">
+          <a href="../index.html">
+            <div class="logotype">
+              <h2>JavaScript</h2>
+            </div>
+          </a>
+          <ul class="menu">
+            <li class="menu_link">
+              <a href="../pages/home_works.html">Home Works</a>
+            </li>
+            <li class="menu_link">
+              <a href="../pages/lessons.html">Lessons</a>
+            </li>
+            <li class="menu_link">
+              <a href="../pages/profile.html" target="_blank">Profile</a>
+            </li>
+          </ul>
+          <button class="btn" id="btn-get">Click me!</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- ---------------------- HEADER ---------------------- -->
+      <header>
+        <div class="logo">
+          <div class="logo-box">AS</div>
+          <div>
+            <div>Александр Савицкий</div>
+            <div style="font-size: 12px; color: #aaa">Frontend разработчик</div>
+          </div>
+        </div>
+
+        <nav>
+          <a href="#projects">Проекты</a>
+          <a href="#skills">Навыки</a>
+          <a href="#contact">Связаться</a>
+        </nav>
+      </header>
+
+      <!-- ---------------------- HERO ---------------------- -->
+      <section id="hero">
+        <div>
+          <h1 style="font-size: 36px; font-weight: bold">
+            Привет — я <span style="color: orange">Александр</span>.
+          </h1>
+          <p style="color: #ccc; margin: 20px 0; max-width: 420px">
+            Я создаю быстрые и аккуратные интерфейсы. Люблю чистый код и
+            продуманные UX‑решения.
+          </p>
+
+          <button onclick="scrollToContact()">Связаться</button>
+          <a href="#" class="ghost-btn">GitHub</a>
+        </div>
+
+        <div class="avatar">
+          <div style="text-align: center">
+            <div style="font-size: 28px; font-weight: bold">AS</div>
+            <div style="font-size: 12px; color: #bbb">Frontend & UI</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------- PROJECTS ---------------------- -->
+      <section id="projects">
+        <h2 style="font-size: 26px; font-weight: bold">Проекты</h2>
+        <p style="color: #aaa">Некоторые мои работы.</p>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </section>
+
+      <!-- ---------------------- SKILLS ---------------------- -->
+      <section id="skills">
+        <h2 style="font-size: 26px; font-weight: bold">Навыки</h2>
+
+        <div class="skills-grid">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">TypeScript</div>
+          <div class="skill">React</div>
+          <div class="skill">Tailwind</div>
+          <div class="skill">Node.js</div>
+          <div class="skill">Git</div>
+        </div>
+      </section>
+
+      <!-- ---------------------- CONTACT ---------------------- -->
+      <section id="contact">
+        <h2 style="font-size: 26px; font-weight: bold">Связаться</h2>
+        <p style="color: #aaa">Напиши мне — отвечу в ближайшие дни.</p>
+
+        <div class="contact-wrapper">
+          <div class="contact-card">
+            <h3>Контакты</h3>
+            <p>Email: you@example.com</p>
+            <p>GitHub: github.com/yourname</p>
+            <p>LinkedIn: linkedin.com/in/yourname</p>
+          </div>
+
+          <form class="contact-form" onsubmit="sendForm(event)">
+            <label>Имя</label>
+            <input type="text" placeholder="Ваше имя" required />
+
+            <label>Почта</label>
+            <input type="email" placeholder="you@example.com" required />
+
+            <label>Сообщение</label>
+            <textarea
+              rows="5"
+              placeholder="Ваше сообщение..."
+              required
+            ></textarea>
+
+            <button type="submit">Отправить</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ---------------------- FOOTER ---------------------- -->
+    <footer>© 2025 Александр Савицкий. Все права защищены.</footer>
+
+    <script src="../js/profile.js"></script>
+  </body>
+</html>
