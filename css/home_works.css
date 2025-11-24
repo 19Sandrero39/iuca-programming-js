@@ -2,19 +2,19 @@
 
 .gmail_block {
     background: black;
-    padding: 80px 0; 
+    padding: 80px 0;
 }
 
 .inner_gmail_block {
     margin-top: 40px;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     border: 1px solid var(--orange);
     border-radius: 20px;
-    padding: 40px 30px; 
-    background: #1a1a1a; 
-    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1); 
+    padding: 40px 30px;
+    background: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.1);
 }
 
 .form_gmail {
@@ -22,14 +22,14 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px; 
+    max-width: 400px;
 }
 
 .form_gmail label {
     font-size: 14px;
     color: #aaa;
     margin-bottom: 8px;
-    align-self: flex-start; 
+    align-self: flex-start;
 }
 
 .form_gmail input[type="text"] {
@@ -40,7 +40,7 @@
     border-radius: 8px;
     color: #eee;
     font-size: 16px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .form_gmail button {
@@ -52,8 +52,8 @@
     margin-top: 15px;
     font-weight: bold;
     font-size: 14px;
-    color: #aaa; 
-    min-height: 20px; 
+    color: #aaa;
+    min-height: 20px;
 }
 
 /* MOVE BLOCK */
@@ -69,8 +69,8 @@
     border: 1px solid var(--orange);
     position: relative;
     margin: 0 auto;
-    border-radius: 10px; 
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
 }
 
 .inner_parent_block {
@@ -86,7 +86,7 @@
     width: 50px;
     height: 50px;
     background-color: red;
-    border-radius: 4px; 
+    border-radius: 4px;
 }
 
 .inner_move_block {
@@ -117,43 +117,50 @@
     font-style: normal;
     transform: rotate(var(--rotate)) translateX(var(--dail-size));
 }
+
 .spike:nth-child(5n+1) {
     box-shadow: -7px 0 #fff9;
 }
+
 .spike:nth-child(5n+1):after {
     content: attr(data-i);
     position: absolute;
     right: 22px;
     top: -10px;
     transition: 1s linear;
-    transform: rotate(calc( var(--dRotate) - var(--rotate)));
+    transform: rotate(calc(var(--dRotate) - var(--rotate)));
 }
+
 .seconds {
     --dRotate: 0deg;
     --dail-size: calc((var(--clock-size)/ 2) - 8px);
     font-weight: 800;
     font-size: 18px;
-    transform: rotate(calc( -1 * var(--dRotate)));
+    transform: rotate(calc(-1 * var(--dRotate)));
     position: absolute;
     inset: 0;
     margin: auto;
     transition: 1s linear;
 }
+
 .minutes {
     --dail-size: calc((var(--clock-size)/ 2) - 65px);
     font-size: 16px;
-    transform: rotate(calc( -1 * var(--dRotate)));
+    transform: rotate(calc(-1 * var(--dRotate)));
     position: absolute;
     inset: 0;
     margin: auto;
     transition: 1s linear;
 }
+
 .stop-anim {
     transition: 0s linear;
 }
+
 .stop-anim .spike:after {
     transition: 0s linear !important;
 }
+
 .hour {
     font-size: 70px;
     font-weight: 900;
@@ -162,6 +169,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 .minute {
     font-size: 36px;
     font-weight: 900;
@@ -172,6 +180,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
 .minute:after {
     content: "";
     position: absolute;
@@ -210,9 +219,9 @@
     height: 100px;
     width: 100%;
     border-bottom: 1px solid var(--orange);
-    margin-top: 0; 
-    padding-bottom: 20px; 
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); 
+    margin-top: 0;
+    padding-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
 }
 
 .time_block {
@@ -225,6 +234,6 @@
     margin-top: 30px;
     width: 100%;
     display: flex;
-    justify-content: center; 
-    gap: 20px; 
+    justify-content: center;
+    gap: 20px;
 }

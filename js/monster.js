@@ -13,7 +13,7 @@ function init(elemId) {
         h = (canvas.height = window.innerHeight);
     c.fillStyle = "rgba(30,30,30,1)";
     c.fillRect(0, 0, w, h);
-    return {c: c, canvas: canvas};
+    return { c: c, canvas: canvas };
 }
 
 window.onload = function () {
@@ -21,7 +21,7 @@ window.onload = function () {
         canvas = init("canvas").canvas,
         w = (canvas.width = window.innerWidth),
         h = (canvas.height = window.innerHeight),
-        mouse = {x: false, y: false},
+        mouse = { x: false, y: false },
         last_mouse = {};
 
     function dist(p1x, p1y, p2x, p2y) {
@@ -104,7 +104,7 @@ window.onload = function () {
                 dist(this.x, this.y, target.x, target.y) <=
                 this.l + dist(last_target.x, last_target.y, target.x, target.y)
             ) {
-                this.segments[0].fallback({x: this.x, y: this.y});
+                this.segments[0].fallback({ x: this.x, y: this.y });
                 for (let i = 1; i < this.n; i++) {
                     this.segments[i].fallback(this.segments[i - 1].nextPos);
                 }
@@ -152,7 +152,7 @@ window.onload = function () {
         numT = 500,
         tent = [],
         clicked = false,
-        target = {x: 0, y: 0},
+        target = { x: 0, y: 0 },
         last_target = {},
         t = 0,
         q = 10;
@@ -214,12 +214,12 @@ window.onload = function () {
     }
 
     canvas.addEventListener("mousemove", function (e) {
-            last_mouse.x = mouse.x;
-            last_mouse.y = mouse.y;
+        last_mouse.x = mouse.x;
+        last_mouse.y = mouse.y;
 
-            mouse.x = e.pageX - this.offsetLeft;
-            mouse.y = e.pageY - this.offsetTop;
-        }, false
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+    }, false
     );
 
     canvas.onmouseleave = () => {
